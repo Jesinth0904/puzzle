@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GAME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-image:url(BG.jpg);">
+    <div class="main">
+        <div class="game">
+            <h1 style="color: white;font-size: 50px;"> Number Guess Application</h1><br>
+            <h2 style="color: wheat;"> Select a Number Between 1 - 100 and Guess!</h2><br>
+            <label for="" style="color: white;"><b>Guess a Number:</b></label>
+            <input type="number" name="Enter the Number" id="input">
+            <h2 id="res"></h2>
+        </div>
+        <div class="try">
+            <h2 style="color: black;">Number of tries</h2>
+            <h3 id="tries" style="color: white;">0</h3>
+        </div>
+        <div class="box">
+            <input type="submit" value="check" id="check" onclick="find()">
+            <input type="submit" value="Next" id="Next" onclick="find()">
+        </div>
+    </div> 
+
+    <script>
+        var number=(Math.ceil(Math.random()*100));
+        var count=1;
+        console.log(number);
+        function find()
+        {
+            var numuser=parseInt(document.getElementById("input").value);
+            if(numuser == number)
+            {
+                document.getElementById("res").textContent="Congratulatons you guess a correct number!";
+            }
+            else if(numuser > number)
+            {
+                document.getElementById("res").textContent="Guess the smaller value!";
+            }
+            else if(numuser < number)
+            {
+                document.getElementById("res").textContent="Guess the greater value!";
+            }
+            else
+            {
+                document.getElementById("res").textContent="Maximum number is 100 !";
+            }
+            document.getElementById("tries").textContent=count;
+            count++;
+        }
+    </script>
+</body>
+</html>
